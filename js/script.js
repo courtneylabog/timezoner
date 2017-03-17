@@ -43,7 +43,6 @@ app.events = function(){
 				const userLt =  userData.results[0].geometry.location
 				const otherLt = otherData.results[0].geometry.location
 				console.log(userLt, otherLt);
-				
 				const userLoc = userData.results[0].formatted_address
 				const otherLoc = otherData.results[0].formatted_address
 				console.log(otherLoc,userLoc);
@@ -53,15 +52,26 @@ app.events = function(){
 				$.when(ajaxTimeCall(userPosition), ajaxTimeCall(otherPosition)).then(function(userTime, otherTime){
 					userTime = userTime[0]
 					otherTime = otherTime[0]
-					const userRD = ((userTime.rawOffset * 1000) + (userTime.dstOffset * 1000))
-					const otherRD = ((otherTime.rawOffset * 1000) + (otherTime.dstOffset * 1000))
+					console.log(userTime.dstOffset);
+					console.log(userTime.rawOffset);
+					const userRD =  (1000 * (userTime.rawOffset)) + (1000 *(userTime.dstOffset))
+					const otherRD = (1000 * (otherTime.rawOffset)) + (1000 * (otherTime.dstOffset))
 				    const d = new Date();
 					const utc = d.getTime() + (d.getTimezoneOffset() * 60000); 
-					const newDate = new Date(utc+ (userRD));
-					const newDate2 = new Date(utc+ (otherRD));
+
+
+
+					// THIS IS WHERE THE PROBLEM IS 
+					// NOT CALCULATING THE TIME CORRECTLY FROM THE VARIABLE userRD & otherRD
+					const newDate = new Date(utc + userRD);
+					const newDate2 = new Date(utc + otherRD);
+					console.log(d);
+					console.log(utc);
+					console.log(userRD);
+					console.log(newDate, newDate2);
+
 				// Compare general time difference to print on page 
 				let timeDifference = ((((otherRD - userRD)/1000)/60)/60);
-
 				let $timeDifference = $('<p>').text("That's a " +timeDifference + " hour difference.");
 					$('.resultDifference').html($timeDifference);
 				app.displayTimes(newDate, newDate2,userLoc, otherLoc);
@@ -185,7 +195,7 @@ const ajaxTimeCall = function(appPosition){
 	        reqUrl: app.timezoneURL,
 	        params: {
 	            key:app.key,
-				timestamp:1331161200,
+				timestamp: 1331766000,
 				location: appPosition
 	        },
 	        xmlToJSON: false
