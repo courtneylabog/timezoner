@@ -1,10 +1,4 @@
-// CAN I CALL RIGHT NOW?
-// OVERALL GOAL : create a webapp that compares 2 separate time zones based on a users city input 
-// return a string to indicate what time it is in the desired timezone 2
-
 const app = {};
-
-// app.userCity= "";
 
 app.timezoneURL =' https://maps.googleapis.com/maps/api/timezone/json';
 
@@ -16,13 +10,6 @@ app.init = function(){
 	app.events();
 };
 
-//user types in a city into the text form and app gathers info to put into address field in ajax geolocation API call
-//city is compared to the google geolocation API 
-//function is gathering what user types in each field
-//prevents the default submission
-//stores both city values in objects
-//stores both lat & lng strings in two separate consts
-//stores both strings (values) in when and calls the timezone API with the location parameter
 app.events = function(){
 	$('#userForm').on('submit', function(e){
 		e.preventDefault();
@@ -42,34 +29,20 @@ app.events = function(){
 				
 				const userLt =  userData.results[0].geometry.location
 				const otherLt = otherData.results[0].geometry.location
-				console.log(userLt, otherLt);
 				const userLoc = userData.results[0].formatted_address
 				const otherLoc = otherData.results[0].formatted_address
-				console.log(otherLoc,userLoc);
 
 				const userPosition = `${userLt.lat}, ${userLt.lng}`
 				const otherPosition = `${otherLt.lat}, ${otherLt.lng}`
 				$.when(ajaxTimeCall(userPosition), ajaxTimeCall(otherPosition)).then(function(userTime, otherTime){
 					userTime = userTime[0]
 					otherTime = otherTime[0]
-					console.log(userTime.dstOffset);
-					console.log(userTime.rawOffset);
 					const userRD =  (1000 * (userTime.rawOffset)) + (1000 *(userTime.dstOffset))
 					const otherRD = (1000 * (otherTime.rawOffset)) + (1000 * (otherTime.dstOffset))
 				    const d = new Date();
 					const utc = d.getTime() + (d.getTimezoneOffset() * 60000); 
-
-
-
-					// THIS IS WHERE THE PROBLEM IS 
-					// NOT CALCULATING THE TIME CORRECTLY FROM THE VARIABLE userRD & otherRD
 					const newDate = new Date(utc + userRD);
 					const newDate2 = new Date(utc + otherRD);
-					console.log(d);
-					console.log(utc);
-					console.log(userRD);
-					console.log(newDate, newDate2);
-
 				// Compare general time difference to print on page 
 				let timeDifference = ((((otherRD - userRD)/1000)/60)/60);
 				let $timeDifference = $('<p>').text("That's a " +timeDifference + " hour difference.");
@@ -104,15 +77,10 @@ app.displayTimes = function(newDate,newDate2, userLoc, otherLoc){
 	$('.otherDate').html($otherCityDate);
 
 	let userCityNumber = parseInt(userCityTime.replace(/:/g,""));
-		console.log(userCityTime);
-		console.log(userCityNumber);
 
 	let otherCityNumber = parseInt(otherCityTime.replace(/:/g,""));
-		console.log(otherCityTime);
-		console.log(otherCityNumber);
 
 	// if statement that will determine the background colour of the div based on day or night
-// determines what colour the users city's container will be
 	if (userCityNumber >= 000001 && userCityNumber <= 60000){
 		$('.userIcon').html('<i class="fa fa-moon-o" aria-hidden="true"></i>');
 		$('#userCityContainer').addClass('userCityContainerDarkNight');
@@ -147,19 +115,19 @@ app.displayTimes = function(newDate,newDate2, userLoc, otherLoc){
 	if(usersChoice === 'personal'){
 		// if personal is selected run personal if statement 
 		if(otherCityNumber >= 80000 && otherCityNumber <= 230000){
-			let $messageBox = $("<div class='resultMessageBox'><p>What are you waiting for? Call them!</p></div>");
+			let $messageBox = $("<div class='resultMessageBox'><i class='fa fa-check-circle' aria-hidden='true'><p>What are you waiting for? Call them!</p></div>");
 			$('.resultMessage').html($messageBox);
 		} else {
-			let $messageBox = $("<div class='resultMessageBox'><p>They're probably asleep ...</p></div>");
+			let $messageBox = $("<div class='resultMessageBox'><i class='fa fa-exclamation-circle' aria-hidden='true'><p>They're probably asleep ...</p></div>");
 			$('.resultMessage').html($messageBox);
 		}
 	}else if(usersChoice === 'business'){
 	// if business is selected run business if statement 
 		if(otherCityNumber >= 70000 && otherCityNumber <= 180000){
-			let $messageBox = $("<div class='resultMessageBox'><p>Give them a call!</p></div>");
+			let $messageBox = $("<div class='resultMessageBox'><i class='fa fa-check-circle' aria-hidden='true'><p>Give them a call!</p></div>");
 			$('.resultMessage').html($messageBox);
 		} else {
-			let $messageBox = $("<div class='resultMessageBox'><p>Try again later! They can't be working all day ...</p></div>");
+			let $messageBox = $("<div class='resultMessageBox'><i class='fa fa-exclamation-circle' aria-hidden='true'></i><p>Try again later! Your call will not fall within work hours.</p></div>");
 			$('.resultMessage').html($messageBox);
 		}
 	}else if (usersChoice === 'general'){

@@ -152,7 +152,7 @@ h1 {
   margin: 0;
   font-size: 3.8rem;
   letter-spacing: 1.5px;
-  padding: 10px;
+  padding: 40px 20px 40px 20px;
   text-align: center; }
 
 p {
@@ -225,7 +225,7 @@ footer p {
 
 h1.headerMargin {
   font-size: 5rem;
-  margin-top: 100px; }
+  margin-top: 20px; }
   @media (max-width: 415px) {
     h1.headerMargin {
       font-size: 4.5rem; } }
@@ -248,7 +248,7 @@ h1.headerMargin {
 .clockmini {
   text-align: center;
   margin: 6px auto 12px auto;
-  font-size: 4rem;
+  font-size: 5rem;
   color: #205E67; }
 
 .clockHero {
@@ -261,9 +261,11 @@ h1.headerMargin {
   color: #DE5A5A; }
 
 .fa-moon-o {
+  font-size: 5.5rem;
   margin: 30px; }
 
 .fa-sun-o {
+  font-size: 5.5rem;
   margin: 30px; }
 
 .form--userScroll {
@@ -338,7 +340,7 @@ label.userChoice {
   margin: 10px auto 50px auto;
   border-radius: 3px;
   background: url(../images/scrollArrow.png);
-  background-size: 20%;
+  background-size: 12%;
   background-position: 90% 60%;
   background-repeat: no-repeat; }
 
@@ -379,14 +381,25 @@ label.userChoice {
   margin: 30px 10px 10px 10px; }
 
 .resultMessage {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  margin: auto; }
+
+.fa-exclamation-circle {
+  font-size: 5rem;
   margin: auto;
-  font-size: 2rem; }
+  text-align: center; }
+
+.fa-check-circle {
+  font-size: 5rem;
+  margin: auto;
+  text-align: center; }
 
 .resultMessageBox {
   padding: 10px 20px;
   border-radius: 3px;
   margin: 10px;
-  background-color: #F0FDED;
+  background-color: #F0F0EB;
   border: 4px solid #F29896;
   color: #535353; }
 
@@ -456,7 +469,7 @@ label.userChoice {
 
 .userCityContainerLightDay {
   background: linear-gradient(to bottom, rgba(114, 205, 233, 0.8), rgba(229, 197, 78, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .userCityContainerLightDay {
       padding: 70px 10px; } }
@@ -469,7 +482,7 @@ label.userChoice {
 
 .userCityContainerDay {
   background: linear-gradient(to bottom, rgba(255, 107, 107, 0.8), rgba(244, 213, 96, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .userCityContainerDay {
       padding: 70px 10px; } }
@@ -482,7 +495,7 @@ label.userChoice {
 
 .userCityContainerNight {
   background: linear-gradient(to bottom, rgba(203, 219, 199, 0.8), rgba(76, 187, 179, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .userCityContainerNight {
       padding: 70px 10px; } }
@@ -495,7 +508,7 @@ label.userChoice {
 
 .userCityContainerDarkNight {
   background: linear-gradient(to bottom, rgba(24, 76, 84, 0.8), rgba(78, 205, 196, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .userCityContainerDarkNight {
       padding: 70px 10px; } }
@@ -508,7 +521,7 @@ label.userChoice {
 
 .otherCityContainerLightDay {
   background: linear-gradient(to bottom, rgba(114, 205, 233, 0.8), rgba(229, 197, 78, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .otherCityContainerLightDay {
       padding: 70px 10px; } }
@@ -521,7 +534,7 @@ label.userChoice {
 
 .otherCityContainerDay {
   background: linear-gradient(to bottom, rgba(255, 107, 107, 0.8), rgba(244, 213, 96, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .otherCityContainerDay {
       padding: 70px 10px; } }
@@ -534,7 +547,7 @@ label.userChoice {
 
 .otherCityContainerNight {
   background: linear-gradient(to bottom, rgba(203, 219, 199, 0.8), rgba(76, 187, 179, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .otherCityContainerNight {
       padding: 70px 10px; } }
@@ -547,7 +560,7 @@ label.userChoice {
 
 .otherCityContainerDarkNight {
   background: linear-gradient(to bottom, rgba(24, 76, 84, 0.8), rgba(78, 205, 196, 0.8));
-  padding: 90px 10px; }
+  padding: 80px 10px; }
   @media (max-width: 768px) {
     .otherCityContainerDarkNight {
       padding: 70px 10px; } }

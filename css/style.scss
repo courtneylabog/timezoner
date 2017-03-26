@@ -26,7 +26,7 @@ h1{
 	margin:0;
 	font-size: 3.8rem;
 	letter-spacing: 1.5px;
-	padding:10px;
+	padding: 40px 20px 40px 20px;
 	text-align: center;
 }
 
@@ -97,7 +97,7 @@ footer p{
 
 h1.headerMargin {
 	font-size: 5rem;
-	margin-top:100px;
+	margin-top:20px;
 	@media (max-width: 415px) {
 		font-size: 4.5rem;
 	}
@@ -122,7 +122,7 @@ h1.headerMargin {
 .clockmini {
 	text-align: center;
 	margin:6px auto 12px auto;
-	font-size: 4rem;
+	font-size: 5rem;
 	color:#205E67;
 }
 
@@ -138,10 +138,12 @@ h1.headerMargin {
 }
 
 .fa-moon-o{
+	font-size: 5.5rem;
 	margin:30px;
 }
 
 .fa-sun-o{
+	font-size: 5.5rem;
 	margin: 30px;
 }
 
@@ -209,7 +211,7 @@ label.userChoice{
 	margin:10px auto 50px auto;
 	border-radius: 3px;
 	background: url(../images/scrollArrow.png);
-	background-size: 20%;
+	background-size: 12%;
 	background-position: 90% 60%; 
 	background-repeat: no-repeat;
 }
@@ -252,15 +254,28 @@ label.userChoice{
 }
 
 .resultMessage {
-	margin:auto;
+	font-family: $typogHeader;
 	font-size: 2rem;
+	margin:auto;
+}
+
+.fa-exclamation-circle{
+	font-size: 5rem;
+	margin: auto;
+	text-align: center;
+}
+
+.fa-check-circle{
+	font-size: 5rem;
+	margin: auto;
+	text-align: center;
 }
 
 .resultMessageBox {
 	padding: 10px 20px;
 	border-radius: 3px;
 	margin:10px;
-	background-color:#F0FDED;
+	background-color:#F0F0EB;
 	border: 4px solid #F29896;
 	color: #535353;
 }
@@ -324,7 +339,7 @@ label.userChoice{
 
 .userCityContainerLightDay{
 	background: $gradientLightest;
-	padding:90px 10px;
+	padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -338,7 +353,7 @@ label.userChoice{
 
 .userCityContainerDay{
 	background: $gradientLight;
-	padding:90px 10px;
+	padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -352,7 +367,7 @@ label.userChoice{
 
 .userCityContainerNight{
 	background: $gradientDark;
-	padding:90px 10px;
+	padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -366,7 +381,7 @@ label.userChoice{
 
 .userCityContainerDarkNight{
 	background: $gradientDarkest;
-	padding:90px 10px;
+	padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -380,7 +395,7 @@ label.userChoice{
 
 .otherCityContainerLightDay{
 background: $gradientLightest;
-padding:90px 10px;
+padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -394,7 +409,7 @@ padding:90px 10px;
 
 .otherCityContainerDay{
 background: $gradientLight;
-padding:90px 10px;
+padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -408,7 +423,7 @@ padding:90px 10px;
 
 .otherCityContainerNight{
 background: $gradientDark;
-padding:90px 10px;
+padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
@@ -422,7 +437,7 @@ padding:90px 10px;
 
 .otherCityContainerDarkNight{
 background: $gradientDarkest;
-padding:90px 10px;
+padding:80px 10px;
 	@media (max-width: 768px) {
 		padding:70px 10px;
 	}
